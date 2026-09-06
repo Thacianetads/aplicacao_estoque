@@ -1,0 +1,70 @@
+<main class="produto-container">
+  
+  <!-- Título -->
+  <div class="title">
+    <h1><i class="bi bi-journal-check"></i> Lista de Estoque</h1>
+  </div>
+
+  <!-- Adicionar novo produto -->
+  <div class="add-produto">
+    <input [(ngModel)]="newProduto.nome" placeholder="Nome produto" />
+    <input [(ngModel)]="newProduto.codigo" placeholder="Código (sku)" />
+    <input [(ngModel)]="newProduto.fornecedor" placeholder="Fornecedor" />
+    <input [(ngModel)]="newProduto.estoque" placeholder="Estoque" />
+    <input [(ngModel)]="newProduto.preco" placeholder="Informe preço" />
+
+
+
+    <button (click)="addProduto()">
+      <i class="bi bi-plus-lg"></i>
+    </button>
+  </div>
+
+  <!-- Lista de tarefas -->
+  <ul class="produto-list">
+    <li *ngFor="let produtoItem of produtoList; let i = index">
+
+
+      <!-- Edição inline -->
+      <ng-container *ngIf="editingProduto?.id === produtoItem.id && editingProduto as produtoToEdit; else displayProduto">
+
+        <input [(ngModel)]="produtoToEdit.nome" placeholder="Nome produto" />
+        <input [(ngModel)]="produtoToEdit.codigo" placeholder="Código" />
+        <input [(ngModel)]="produtoToEdit.fornecedor" placeholder="Fornecedor" />
+        <input [(ngModel)]="produtoToEdit.estoque" placeholder="Estoque" />
+        <input [(ngModel)]="produtoToEdit.preco" placeholder="Preço" />
+
+        <button class="btn-green save-btn" (click)="saveEdit()">
+          <i class="bi bi-check-circle"></i>
+        </button>
+        <button class="btn-red cancel-btn" (click)="cancelEdit()">
+          <i class="bi bi-x-circle"></i>
+        </button>
+
+      </ng-container>
+
+      <!-- Exibição padrão -->
+      <ng-template #displayProduto>
+        <div class="produto-info">
+          <span class="produto-title">{{produtoItem.nome}}</span>
+          <p class="produto-cod">{{produtoItem.codigo}}</p>
+          <p class="produto-fornecedor">{{produtoItem.fornecedor}}</p>
+          <p class="produto-estoque">{{produtoItem.estoque}}</p>
+          <p class="produto-preco">{{produtoItem.preco}}</p>
+        </div>
+        <div class="produto-actions">
+          <button class="btn-green edit-btn" (click)="editProduto(produtoItem)">
+            <i class="bi bi-pencil"></i>
+          </button>
+          <button class="btn-red delete-btn" (click)="deleteProduto(produtoItem.id)">
+            <i class="bi bi-trash"></i>
+          </button>
+        </div>
+      </ng-template>
+
+    </li>
+  </ul>
+
+</main>
+
+<router-outlet />
