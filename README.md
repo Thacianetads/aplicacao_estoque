@@ -20,7 +20,7 @@ Um sistema de gerenciamento e controle de estoque desenvolvido em **Java** com *
 O sistema conta com um formulário e cadastro completo de produtos com os seguintes campos:
 
 - **Nome do Produto** (`String`): Nome identificador do item.
-- **Código** (`String` / `Long`): Código único de rastreio ou barras.
+- **Código** (`String`): Código único de rastreio ou barras.
 - **Fornecedor** (`String`): Nome do fornecedor responsável.
 - **Preço** (`BigDecimal`): Valor unitário do produto.
 - **Estoque** (`Integer`): Quantidade disponível no inventário.
