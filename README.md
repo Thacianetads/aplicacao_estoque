@@ -53,6 +53,13 @@ cd backend
 mvn spring-boot:run
 ```
 
+- Testes
+
+```
+npm test
+
+```
+
 ⚙️ Comandos úteis Docker
 
 - Parar containers
