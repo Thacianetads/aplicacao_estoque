@@ -37,6 +37,22 @@ O sistema conta com um formulário e cadastro completo de produtos com os seguin
 - MongoDB
 
 
+- Para acessar front end
+
+```
+cd frontend
+npm install
+npm start
+
+```
+
+- Para back end
+
+```
+cd backend
+mvn spring-boot:run
+```
+
 ⚙️ Comandos úteis Docker
 
 - Parar containers
